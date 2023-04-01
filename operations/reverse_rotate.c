@@ -6,11 +6,11 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:36:59 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/03/30 06:01:05 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:01:36 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	reverse_rotate(t_list *stack)
 {

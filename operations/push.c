@@ -6,11 +6,11 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:54:58 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/03/30 06:17:17 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:01:30 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	push(t_list *src, t_list *dst)
 {
