@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:59:56 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/03/31 22:03:35 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:27:24 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*new_element(t_list *list, int data)
 	t_element			*element;
 
 	element = (t_element *)malloc(sizeof((*element)));
+	if (!element)
+		return (NULL);
 	element->data = data;
 	element->next = NULL;
 	if (!list->first)

@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:00:53 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/01 18:39:29 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/02 20:47:43 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct t_element
 {

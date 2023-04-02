@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:56:03 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/03/31 22:02:44 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:38:58 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main(int argc, char **argv)
 	// new_element(&stack_a, 5);
 	// new_element(&stack_a, 6);
 	// new_element(&stack_a, 6);
-	view_list(&stack_a);
+	// view_list(&stack_a);
 	// printf("First: %d\n", stack_a.first->data);
 	// printf("Last: %d\n", stack_a.last->data);
 	// printf("Size: %d\n", stack_a.size);
 	// sa(&stack_a);
-	// view_list(&stack_a);
+	view_list(&stack_a);
 	// printf("First: %d\n", stack_a.first->data);
 	// printf("Last: %d\n", stack_a.last->data);
 	// printf("Size: %d\n", stack_a.size);
@@ -64,5 +64,5 @@ int	main(int argc, char **argv)
 	// printf("First: %d\n", stack_b.first->data);
 	// printf("Last: %d\n", stack_b.last->data);
 	// printf("Size: %d\n", stack_b.size);
-	return (0);
+return (0);
 }
