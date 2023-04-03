@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   recursive_split.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 19:07:15 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/02 18:23:28 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:13:14 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	while (*s == c)
+	while (*s == c && *s)
 		s++;
 	while (s[i] != c && s[i] != '\0')
 		i++;
@@ -48,13 +48,13 @@ char	**ft_split(char const *s, char c)
 	return (arr);
 }
 
-// int	main(void)
-// {
-// 	char	**arr;
-// 	char	*str = "  Ola42 Sou Eu ";
+int	main(void)
+{
+	char	**arr;
+	char	*str = "  Ola42 Sou Eu ";
 
-// 	arr = ft_split(str, ' ');
-// 	while (arr && *arr)
-// 		printf("%s\n", *arr++);
-// 	return (0);
-// }
+	arr = ft_split(str, ' ');
+	while (arr && *arr)
+		printf("%s\n", *arr++);
+	return (0);
+}
