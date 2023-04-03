@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:45:18 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/02 19:42:06 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:39:06 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_atoi2(t_list stack_a, const char *str)
 			j = j * (-1);
 		str++;
 	}
-	if ()
+
 }
 
 t_list	initializer(int argc, char **argv)

@@ -6,70 +6,44 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 19:26:11 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/03 17:13:27 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:56:48 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
-
-void	list_free(t_list *stack_a)
-{
-	t_element	*temp;
-
-	temp = stack_a->first;
-	while (temp)
-	{
-		stack_a->first = temp->next;
-		free(temp);
-		temp = stack_a->first;
-	}
-	write(2, "error\n", 6);
-	exit(1);
-}
-
-int	is_number(const char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i] && !((str[i] >= 9 && str[i] <= 13) || (str[i] == 32)))
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (0);
-	}
-	return (1);
-}
 
 void	ft_atoi2(t_list *stack_a, const char *str)
 {
-	int	j;
-	int	res;
+	long long	j;
+	long long	res;
 
 	res = 0;
 	while ((*str >= 9 && *str <= 13) || (*str == 32))
 		str++;
 	j = (*str != '-') - (*str == '-');
-	if (*str == '-' || *str == '+')
+	if ((*str == '-' || *str == '+') && (*(str + 1) >= '0' && *(str + 1) <= '9'))
 		str++;
-	if (is_number(str) && *str)
-	{
-		while (*str && (*str >= '0' && *str <= '9'))
-			res = (res * 10) + *str++ - '0';
-		new_element(stack_a, res * j);
-	}
-	else if (*str)
-		list_free(stack_a);
-	if (((*str >= 9 && *str <= 13) || (*str == 32)) && *str)
+	if (!(*str))
+		return ;
+	while (*str && (*str >= '0' && *str <= '9'))
+		res = (res * 10) + *str++ - '0';
+	res *= j;
+	new_element(stack_a, res);
+	if (((*str >= 9 && *str <= 13) || (*str == 32)))
 		ft_atoi2(stack_a, str);
+	else if (*str || (res < INT_MIN || res > INT_MAX))
+		list_free(stack_a, 1);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	static t_list	stack_a;
-	char	*str = " -545 94f4 001\t  k";
+	int				i;
 
-	ft_atoi2(&stack_a, str);
+	i = 0;
+	while (++i < argc)
+		ft_atoi2(&stack_a, argv[i]);
 	view_list(&stack_a);
+	list_free(&stack_a, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:00:53 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/02 20:47:43 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:28:41 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct t_element
 {
@@ -31,8 +32,12 @@ typedef struct t_list
 	int			size;
 }				t_list;
 
+// #### list_utils ####
 t_list	*new_element(t_list *list, int data);
 void	view_list(t_list *list);
+void	list_free(t_list *stack_a, int error);
+
+// #### operations ####
 void	sa(t_list *list);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);

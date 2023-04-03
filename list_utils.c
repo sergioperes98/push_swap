@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:59:56 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/03 11:17:55 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:28:13 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,20 @@ void	view_list(t_list *list)
 		temp = temp->previous;
 	}
 	printf("NULL\n");
+}
+
+void	list_free(t_list *stack_a, int error)
+{
+	t_element	*temp;
+
+	temp = stack_a->first;
+	while (temp)
+	{
+		stack_a->first = temp->next;
+		free(temp);
+		temp = stack_a->first;
+	}
+	if (error)
+		write(2, "error\n", 6);
+	exit(error);
 }
