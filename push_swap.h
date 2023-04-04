@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:00:53 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/03 18:28:41 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:55:30 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	rra(t_list *stack_a);
 void	rrb(t_list *stack_b);
 void	rrr(t_list *stack_a, t_list *stack_b);
 
-t_list	initializer(int argc, char **argv);
+// #### initializer ####
+void	ft_atoi(t_list *stack_a, const char *str);
+void	check_double(t_list *stack_a);
+int		sorted_list(t_list *stack_a);
 
 #endif
