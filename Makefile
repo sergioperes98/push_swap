@@ -12,8 +12,8 @@
 
 NAME = push_swap
 
-SRC = operations/push.c operations/swap.c operations/rotate.c operations/reverse_rotate.c \
-		push_swap.c list_utils.c initialization.c
+SRC =	push.c swap.c rotate.c reverse_rotate.c \
+		little_sort.c list_utils.c initializer.c
 
 OBJS = $(SRC:%.c=%.o)
 

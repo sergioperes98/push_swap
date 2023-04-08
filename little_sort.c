@@ -14,5 +14,82 @@
 
 void	sort_three(t_list *stack_a)
 {
-	if ((stack_a->first > stack_a->last) && (stack_a->first > stack_a->first->next))
+	int	first;
+	int	second;
+	int	last;
+
+	first = stack_a->first->data;
+	second = stack_a->first->next->data;
+	last = stack_a->last->data;
+	if (second < last && first > last)
+		ra(stack_a);
+	else if (last < first && second > first)
+		rra(stack_a);
+	else if (last < second && first > second)
+	{
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (first < last && second > last)
+	{
+		sa(stack_a);
+		ra(stack_a);
+	}
+	else
+		sa(stack_a);
+}
+
+t_element	*min_value(t_list *stack_a)
+{
+	t_element	*temp;
+	t_element	*min;
+
+	temp = stack_a->first->next;
+	min = stack_a->first;
+	while (temp)
+	{
+		if (temp->data < min->data)
+			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
+
+int	min_side(t_list *stack_a, t_element	*min)
+{
+	int	i;
+
+	i = 0;
+	while (min)
+	{
+		min = min->next;
+		i++;
+	}
+	return (i > (stack_a->size / 2));
+}
+
+void	push_min(t_list *stack_a, t_list *stack_b)
+{
+	t_element	*min;
+
+	(void)stack_b;
+	min = min_value(stack_a);
+	if (min_side(stack_a, min))
+	{
+		while (min->previous)
+			ra(stack_a);
+	}
+	else
+		while (min->previous)
+			rra(stack_a);
+	pb(stack_a, stack_b);
+}
+
+void	sort_five(t_list *stack_a, t_list *stack_b)
+{
+	while (stack_a->size > 3)
+		push_min(stack_a, stack_b);
+	sort_three(stack_a);
+	while (stack_b->size > 0)
+		pa(stack_a, stack_b);
 }

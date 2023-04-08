@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	push(t_list *src, t_list *dst)
 {
@@ -31,8 +31,13 @@ static void	push(t_list *src, t_list *dst)
 		}
 		temp->next = dst->first;
 		temp->previous = NULL;
-		dst->first->previous = temp;
+		if (dst->first)
+			dst->first->previous = temp;
+		else
+			dst->last = temp;
 		dst->first = temp;
+		src->size--;
+		dst->size++;
 	}
 }
 

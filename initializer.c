@@ -24,11 +24,11 @@ int	sorted_list(t_list *stack_a)
 	while (temp2)
 	{
 		if (temp->data > temp2->data)
-			return (1);
+			return (0);
 		temp = temp->next;
 		temp2 = temp2->next;
 	}
-	return (0);
+	return (1);
 }
 
 void	check_double(t_list *stack_a)
@@ -62,7 +62,8 @@ void	ft_atoi(t_list *stack_a, const char *str)
 	while ((*str >= 9 && *str <= 13) || (*str == 32))
 		str++;
 	j = (*str != '-') - (*str == '-');
-	if ((*str == '-' || *str == '+') && (*(str + 1) >= '0' && *(str + 1) <= '9'))
+	if ((*str == '-' || *str == '+') \
+	&& (*(str + 1) >= '0' && *(str + 1) <= '9'))
 		str++;
 	if (!(*str))
 		return ;
@@ -79,14 +80,27 @@ void	ft_atoi(t_list *stack_a, const char *str)
 int	main(int argc, char **argv)
 {
 	static t_list	stack_a;
+	static t_list	stack_b;
 	int				i;
 
 	i = 0;
 	while (++i < argc)
 		ft_atoi(&stack_a, argv[i]);
 	check_double(&stack_a);
-	printf("%d\n", sorted_list(&stack_a));
+	if (sorted_list(&stack_a))
+		return (0);
+	if (stack_a.size == 3)
+		sort_three(&stack_a);
+	if (stack_a.size == 4 || stack_a.size == 5)
+		sort_five(&stack_a, &stack_b);
+	printf("STACK A\n");
+	printf("size: %d\n", stack_a.size);
 	view_list(&stack_a);
+	printf(" \n");
+	printf("STACK B\n");
+	printf("size: %d\n", stack_b.size);
+	view_list(&stack_b);
 	list_free(&stack_a, 0);
+	list_free(&stack_b, 0);
 	return (0);
 }

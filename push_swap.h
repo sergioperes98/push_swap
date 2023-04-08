@@ -38,7 +38,7 @@ void	view_list(t_list *list);
 void	list_free(t_list *stack_a, int error);
 
 // #### operations ####
-void	sa(t_list *list);
+void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);
 void	pa(t_list *stack_a, t_list *stack_b);
@@ -54,5 +54,12 @@ void	rrr(t_list *stack_a, t_list *stack_b);
 void	ft_atoi(t_list *stack_a, const char *str);
 void	check_double(t_list *stack_a);
 int		sorted_list(t_list *stack_a);
+
+// #### little_sort ####
+void		sort_three(t_list *stack_a);
+t_element	*min_value(t_list *stack_a);
+int			min_side(t_list *stack_a, t_element	*min);
+void		push_min(t_list *stack_a, t_list *stack_b);
+void		sort_five(t_list *stack_a, t_list *stack_b);
 
 #endif
