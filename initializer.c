@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 19:26:11 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/04 21:44:02 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:00:09 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (stack_a.size == 3)
 		sort_three(&stack_a);
+	if (stack_a.size > 5)
+        push_mean(&stack_a, &stack_b);
 	if (stack_a.size == 4 || stack_a.size == 5)
 		sort_five(&stack_a, &stack_b);
 	printf("STACK A\n");

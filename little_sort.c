@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   little_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:58:57 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/04 21:51:22 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:04:54 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	sort_three(t_list *stack_a)
 	first = stack_a->first->data;
 	second = stack_a->first->next->data;
 	last = stack_a->last->data;
+	if (sorted_list(stack_a))
+		return;
 	if (second < last && first > last)
 		ra(stack_a);
 	else if (last < first && second > first)
@@ -90,6 +92,6 @@ void	sort_five(t_list *stack_a, t_list *stack_b)
 	while (stack_a->size > 3)
 		push_min(stack_a, stack_b);
 	sort_three(stack_a);
-	while (stack_b->size > 0)
-		pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }

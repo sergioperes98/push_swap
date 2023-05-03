@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svilaca- <svilaca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:00:53 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/04/04 20:55:30 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:10:41 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ t_element	*min_value(t_list *stack_a);
 int			min_side(t_list *stack_a, t_element	*min);
 void		push_min(t_list *stack_a, t_list *stack_b);
 void		sort_five(t_list *stack_a, t_list *stack_b);
+
+// #### mean ####
+long long	mean(t_list *stack_a);
+void    	push_mean(t_list *stack_a, t_list *stack_b);
 
 #endif
