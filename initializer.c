@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 19:26:11 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/05/03 20:00:09 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/06/02 19:06:56 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_double(t_list *stack_a)
 		while (temp2)
 		{
 			if (temp->data == temp2->data)
-				list_free(stack_a, 1);
+				free_list(stack_a, 1);
 			temp2 = temp2->next;
 		}
 		temp = temp->next;
@@ -74,7 +74,7 @@ void	ft_atoi(t_list *stack_a, const char *str)
 	if (((*str >= 9 && *str <= 13) || (*str == 32)))
 		ft_atoi(stack_a, str);
 	else if (*str || (res < INT_MIN || res > INT_MAX))
-		list_free(stack_a, 1);
+		free_list(stack_a, 1);
 }
 
 int	main(int argc, char **argv)
@@ -95,14 +95,9 @@ int	main(int argc, char **argv)
         push_mean(&stack_a, &stack_b);
 	if (stack_a.size == 4 || stack_a.size == 5)
 		sort_five(&stack_a, &stack_b);
-	printf("STACK A\n");
-	printf("size: %d\n", stack_a.size);
-	view_list(&stack_a);
-	printf(" \n");
-	printf("STACK B\n");
-	printf("size: %d\n", stack_b.size);
-	view_list(&stack_b);
-	list_free(&stack_a, 0);
-	list_free(&stack_b, 0);
+	if (stack_b.size > 0)
+		algo(&stack_a, &stack_b);
+	free_list(&stack_a, 0);
+	free_list(&stack_b, 0);
 	return (0);
 }

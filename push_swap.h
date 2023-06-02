@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:00:53 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/05/03 19:10:41 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:15:42 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ typedef struct t_list
 {
 	t_element	*first;
 	t_element	*last;
-	int			size;
+	float		size;
 }				t_list;
 
 // #### list_utils ####
 t_list	*new_element(t_list *list, int data);
 void	view_list(t_list *list);
-void	list_free(t_list *stack_a, int error);
+void	free_list(t_list *stack, int error);
 
 // #### operations ####
 void	sa(t_list *stack_a);
@@ -59,11 +59,22 @@ int		sorted_list(t_list *stack_a);
 void		sort_three(t_list *stack_a);
 t_element	*min_value(t_list *stack_a);
 int			min_side(t_list *stack_a, t_element	*min);
-void		push_min(t_list *stack_a, t_list *stack_b);
+void		push_min(t_list *stack_a);
 void		sort_five(t_list *stack_a, t_list *stack_b);
 
 // #### mean ####
-long long	mean(t_list *stack_a);
-void    	push_mean(t_list *stack_a, t_list *stack_b);
+float		mean(t_list *stack_a);
+void		push_mean(t_list *stack_a, t_list *stack_b);
+
+// #### cost ####
+t_element	*best_friend(t_list *stack_a, t_element *stack_b);
+int			cost(t_list *stack, t_element *value);
+t_element	**min_cost(t_list *stack_a, t_list *stack_b);
+void		top_value(t_list *stack, t_element *value, int i);
+void		algo(t_list *stack_a, t_list *stack_b);
+
+// #### cost2 ####
+void	stack_a_rotate(t_list *stack_a);
+void	double_rotate(t_list *stack_a, t_element *best, t_list *stack_b, t_element *value);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: svilaca- <svilaca-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:58:57 by svilaca-          #+#    #+#             */
-/*   Updated: 2023/05/03 20:04:54 by svilaca-         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:15:50 by svilaca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_three(t_list *stack_a)
 	second = stack_a->first->next->data;
 	last = stack_a->last->data;
 	if (sorted_list(stack_a))
-		return;
+		return ;
 	if (second < last && first > last)
 		ra(stack_a);
 	else if (last < first && second > first)
@@ -70,11 +70,10 @@ int	min_side(t_list *stack_a, t_element	*min)
 	return (i > (stack_a->size / 2));
 }
 
-void	push_min(t_list *stack_a, t_list *stack_b)
+void	push_min(t_list *stack_a)
 {
 	t_element	*min;
 
-	(void)stack_b;
 	min = min_value(stack_a);
 	if (min_side(stack_a, min))
 	{
@@ -84,13 +83,15 @@ void	push_min(t_list *stack_a, t_list *stack_b)
 	else
 		while (min->previous)
 			rra(stack_a);
-	pb(stack_a, stack_b);
 }
 
 void	sort_five(t_list *stack_a, t_list *stack_b)
 {
 	while (stack_a->size > 3)
-		push_min(stack_a, stack_b);
+	{
+		push_min(stack_a);
+		pb(stack_a, stack_b);
+	}
 	sort_three(stack_a);
 	pa(stack_a, stack_b);
 	pa(stack_a, stack_b);
